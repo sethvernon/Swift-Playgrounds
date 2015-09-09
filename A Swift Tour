@@ -1,0 +1,248 @@
+// Playground - noun: a place where people can play
+
+import UIKit
+
+var str = "Hello, playground"
+
+let constant = 72
+let constantFloat: Float = 4
+let label = "The Width Is "
+let width = 94
+let widthLabel = label + String(width)
+
+// Experiement page 7
+let thingsToDo = 99
+let placesToGo = 1000
+let name = "Seth"
+let thingsToDoSummary = "I have \(thingsToDo) Things To Do"
+let greeting = "Hello \(name) I have \(thingsToDo + placesToGo) things on my plate right now but would love to go out with you"
+
+var todoList = ["Pay PG & E", "Money for Clutch", "Pay Kaiser", "Pay State Of Illinios", "Pay Storage"]
+
+// Experiment page 10
+var optionalString: String? = "Hello"
+optionalString == nil
+
+var optionalName: String? = nil //"John Appleseed"
+var newGreeting = "Hello!"
+
+if let name = optionalName
+{
+  newGreeting = "Hello,  \(name)"
+}
+
+else if optionalName == nil
+{
+    newGreeting = "Hello Stud"
+}
+
+// experiment pg 11
+let vegetable = "kale"
+    switch vegetable
+        {
+        case "hot pepper":
+            let vegCommment = "I like em hot"
+        case "kale, lemon":
+            let vegComment = "Lemon kale; My favorite Swordfish side"
+        case let x where x.hasSuffix("pepper"):
+            let vegetableComment = "Is it a spicy \(x)?"
+        default:
+
+            let vegetableComment = "Everything tastes good in soup"
+    }
+    
+// experiment pg 12
+let interestingNumbers = [
+        
+        "Prime": [2, 3, 5, 7, 11, 13],
+        "Fibonacci": [1, 1, 2, 3, 5, 8],
+        "Square": [1 ,4 , 9, 16, 25],
+]
+
+var largest = 0
+var largestKind = interestingNumbers
+
+for (kind, numbers) in interestingNumbers
+{
+    for number in numbers {
+        if number > largest
+        {
+            largest = number
+            
+//            for largestKind in interestingNumbers
+//                if number > largest
+//                {
+//                        largestKind = largest
+                }
+            
+        }
+}
+
+
+largest
+
+// pg 12 example
+var n = 2
+while n < 100
+    {
+        n = n * 2
+    }
+n
+
+var m = 2
+    do
+        {
+            m = m * 2
+        }
+
+    while m < 100
+    
+m
+
+var firstForLoop = 0
+for i in 0...3
+    {
+        firstForLoop += i
+    }
+firstForLoop
+
+var secondForLoop = 0
+for var i = 0; i < 3; ++i
+
+    {
+        secondForLoop += 1
+    }
+secondForLoop
+
+
+func greet(name: String, lunchSpecial: String) -> String
+{
+    return "Hello \(name), today's lunch special is \(lunchSpecial)."
+}
+greet("Bob", "Meatloaf")
+
+
+// pg 15 experiment
+func avgOf(numbers: Int...) -> Int
+{
+    var avg = 0
+    for number in numbers
+    {
+        avg += number / numbers.count
+    }
+    return avg
+}
+avgOf()
+avgOf(25, 16, 24, 72, 45, 43, 56)
+
+
+// experiment p18
+class Shape
+    {
+        var numberOfSides = 0
+        let shape = "Triangle"
+        let number = 3.0
+        func simpleDescription() -> String {
+            return "A shape with \(numberOfSides) sides."
+            
+            func thisIsATriangle(shape: String, number: Float) ->String
+            
+            {
+                return "A \(shape) has \(number) of sides"
+            }
+    }
+    
+}
+
+let string: String = "myStrings"
+
+
+enum Rank: Int
+    {
+        case Ace = 1
+        case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+        case Jack, Queen, King
+        func simpleDescription() -> String
+        {
+            switch self
+                {
+            case .Ace:
+                return "ace"
+            case .Jack:
+                return "jack"
+            case .Queen:
+                return "queen"
+            case .King:
+                return "king"
+            default:
+                return String(self.toRaw())
+                
+            }
+      }
+}
+let ace = Rank.Ace
+let aceRawValue = ace.toRaw()
+
+// experiment p33
+
+enum ServerResponse
+    {
+        case Result(String, String)
+        case Error(String)
+        case Greeting(String)
+    }
+
+let success = ServerResponse.Result("6:00 am", "8:09 pm")
+let error = ServerResponse.Error("Out of cheese.")
+let greeting1 = ServerResponse.Greeting("Hello Dave. Would you like to play some chess?.")
+
+switch success
+    {
+case let .Result(sunrise, sunset):
+        let serverResponse = "Sunrise is at \(sunrise) and sunset is at \(sunset))."
+case let .Error(error):
+        let serverResponse = "Failure... \(error)"
+case let .Greeting(greeting):
+        let serverResponse = "It's Tuesday.. \(greeting)"
+    }
+
+
+println ("Hello World!")
+
+// Basic Operators pg 75
+9 % 4
+
+8 % 2.5
+
+var i = 0
+//++i
+//i++
+i--
+
+8 % 2.5
+
+let three = 3
+let minusThree = -three
+let plusThree = -minusThree
+
+let minusSix = -6
+let alsoMinusSix = +minusSix
+
+var a = 1
+a += 2
+
+1 == 1
+2 != 1
+2 > 1
+2 <= 1
+
+let name1 = "world"
+if name1 == "world" {
+    println("hello, world")
+}
+ else {
+    println("I'm sorry \(name1), but I don't recognize you")
+}
+
+let contentHeight = 40
+let 
