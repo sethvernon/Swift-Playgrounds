@@ -1,0 +1,190 @@
+// Playground - noun: a place where people can play
+
+import UIKit
+
+var str = "Hello, playground"
+
+func sayHello(personName: String) -> String
+{
+    let greeting = "Hello, " + personName + "!"
+    return greeting
+}
+
+println(sayHello("Seth"))
+
+func sayHelloAgain(personName: String) ->String
+{
+    return "Hello again, " + personName + "!"
+}
+
+println(sayHelloAgain("Seth"))
+
+
+// finction with inputs and arguments and return
+func halfOpenRangeLength(start: Int, end: Int) -> Int
+{
+    return end - start
+}
+println(halfOpenRangeLength(1, 10))
+
+
+// no return
+func sayGoodbye(personName1:String)
+{
+    println("Goodbye, \(personName1)")
+}
+sayGoodbye("Cara")
+
+// return value can be ignores when a func is called
+func printAndCount(stringToPrint:String) -> Int
+{
+    println(stringToPrint)
+    return countElements(stringToPrint)
+}
+func printWithoutCounting(stringToPrint: String)
+{
+    printAndCount(stringToPrint)
+}
+printAndCount("Hello, World")
+printWithoutCounting("Hello, World")
+
+
+// values as part of one compound return value
+func count(string:String) -> (vowels:Int, consonants:Int, others:Int)
+{
+    var vowels = 0, consonants = 0, others = 0
+    
+    for character in string
+        {
+            switch String(character).lowercaseString
+                {
+                case "a", "e", "i", "o", "u":
+            
+                    ++vowels
+            
+                case "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z":
+            
+                    ++consonants
+            
+            default:
+            
+                    ++others
+            }
+        }
+    
+        return(vowels, consonants, others)
+    }
+
+let total = count("some arbitary string!")
+
+println("\(total.vowels) vowels and \(total.consonants) consonants")
+
+
+
+// External perameter names
+func join(string s1:String, toString s2:String, withJoiner joiner:String) -> String
+    
+    {
+            return s1 + joiner + s2
+    }
+
+join(string: "Hello", toString: "World", withJoiner: ",")
+
+
+
+
+// External and internal parameters
+//func containsCharacter(#string:String, #characterToFind:Character) -> Bool
+//{
+//    for character in string
+//        {
+//            if character == characterToFind
+//                {
+//                    return true
+//                }
+//        }
+//    return false
+//}
+//let containsAVee = containsCharacter(string: "aardvark", characterToFind: "v'")
+
+/// variadic parameters
+func arithmeticMean(numbers: Double...) -> Double
+    {
+        var total: Double = 0
+        
+        for number in numbers
+            {
+                
+            total += number
+                    
+            }
+        return total / Double(numbers.count)
+    }
+
+    arithmeticMean(1, 2, 3, 4, 5)
+    arithmeticMean(3, 8, 19)
+    arithmeticMean(4, 4, 4, 4, 4, 4)
+    
+
+//func alignRight(var string: String, count: Int, pad: Character) -> String
+//    {
+//        let amountToPad = count - countElements(string)
+//
+//            for _ in 1...amountToPad
+//                {
+//                    string = pad + string
+//                }
+//            return string
+//    }
+func addTwoInts(a: Int, b: Int) -> Int
+{
+    return a + b
+}
+
+func multiplyTwoInts(a: Int, b: Int) -> Int
+{
+    return a * b
+}
+
+// inout parameter
+func swapTwoInts (inout a: Int, inout b: Int)
+{
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+
+/// asigning functions as paratmeters
+var someInt = 7
+
+var anotherInt = 2
+
+swapTwoInts(&someInt, &anotherInt)
+
+println("Some Int is now \(someInt), and another Int is now \(anotherInt)")
+
+var mathFunction:(Int, Int) -> Int = addTwoInts
+
+println("Math Function \(mathFunction(599949, 55555))")
+
+
+func stepForward(input: Int) -> Int
+{
+    return input + 1
+}
+func stepBackward(input: Int) -> Int
+{
+    return input - 1
+}
+
+func choosesStepFunction(backwards: Bool) -> (Int) -> Int
+{
+    return backwards ? stepBackward : stepForward
+}
+
+var currentValue = 3000
+
+let moveNearerToZero = choosesStepFunction(currentValue > 0)
+
+
